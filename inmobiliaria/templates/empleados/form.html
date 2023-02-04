@@ -1,0 +1,17 @@
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {{  formulario }}
+  {% for campo in formulario %}
+
+      {% if campo.field.widget.input_type == 'file' and campo.value %}
+      <br>
+      <img src="{{MEDIA_URL}}/imagenes/{{campo.value}}" width="100" alt="">
+      {% endif%}
+
+      
+  {% endfor %}
+  <br>
+  <br>
+<input name="" id="" class="btn btn-success" type="submit" value="Guardar Información" href="{% url 'crearEmpleado' %}">
+<a name="" id="" class="btn btn-primary" href="{% url 'empleados' %}" role="button">Cancelar</a>
+</form>
